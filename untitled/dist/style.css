@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&display=swap');
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(180deg, #1f1f1f, #3a3a3a);
+  overflow: hidden;
+  font-family: 'Cormorant Garamond', serif;
+  color: #eee;
+}
+
+.scene {
+  position: relative;
+  height: 100vh;
+}
+
+/* 🖤 CUADRO */
+.lyrics-box {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  max-width: 900px;
+  min-height: 120px;
+
+  background: rgba(15, 15, 15, 0.65);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 30px 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  z-index: 3;
+}
+
+/* 🎵 LETRAS */
+.lyrics {
+  width: 100%;
+  text-align: center;
+  white-space: pre-line;
+  line-height: 1.5;
+
+  font-size: 42px;
+  font-weight: 500;
+  color: #ffffff;
+
+  opacity: 0;
+  transform: translateY(30px);
+
+  text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
+
+/* 🔥 ANIMACIÓN REAL */
+.lyrics.animate {
+  animation: lyricIn 0.9s ease forwards;
+}
+
+@keyframes lyricIn {
+  0% {
+    opacity: 0;
+    transform: translateY(35px);
+    filter: blur(6px);
+  }
+  60% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🎮 CONTROLES */
+.controls {
+  position: absolute;
+  bottom: 18%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+}
+
+button {
+  background: #555;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+button:hover {
+  background: #777;
+}
+
+/* 🌧️ LLUVIA */
+.drop {
+  position: absolute;
+  top: -20px;
+  width: 2px;
+  height: 15px;
+  background: rgba(200, 200, 200, 0.4);
+  animation: rain linear infinite;
+}
+
+@keyframes rain {
+  to {
+    transform: translateY(110vh);
+  }
+}
+
+/* Sticker de gatito */
+.sticker {
+  position: absolute;
+  bottom: 34%;          /* altura desde abajo */
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  width: 135px;         /* tamaño del sticker */
+  opacity: 0;
+  transition: all 0.8s ease;
+  z-index: 4;
+}
+
+.sticker.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
